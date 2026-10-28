@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { WheatIcon, MapIcon, TargetIcon, LightbulbIcon, FlaskIcon, BookOpenIcon, ShieldIcon, DollarIcon, UsersIcon, BookIcon, SparklesIcon, BarChartIcon, AlertCircleIcon, FileTextIcon, TrendingUpIcon, BotIcon, CheckCircleIcon } from '../components/Icons';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { cn } from '../lib/utils';
-import AIChatWidget from '../components/AIChatWidget';
+import { WheatIcon, MapIcon, TargetIcon, LightbulbIcon, FlaskIcon, BookOpenIcon, ShieldIcon, DollarIcon, UsersIcon, BookIcon, SparklesIcon, BarChartIcon, AlertCircleIcon, FileTextIcon, TrendingUpIcon, BotIcon, CheckCircleIcon } from '@/components/Icons';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import AIChatWidget from '@/components/AIChatWidget';
 
 export default function HomePage() {
   return (
