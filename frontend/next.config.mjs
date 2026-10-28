@@ -11,13 +11,8 @@ const nextConfig = {
       }
     ]; 
   },
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': __dirname,
-    };
-    return config;
-  },
+  // Empty turbopack config to enable Turbopack without custom webpack
+  turbopack: {},
 };
 
 export default nextConfig;
