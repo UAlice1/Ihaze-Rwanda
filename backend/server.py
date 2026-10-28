@@ -29,10 +29,19 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-store')
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('Content-Length', str(len(body)))
-        # CORS headers for local development
+        # CORS headers for local development and production
         origin = self.headers.get('Origin')
-        allowed_origins = ['http://127.0.0.1:3000', 'http://localhost:3000']
-        if origin in allowed_origins:
+        # Allow localhost for development and deployed frontend
+        allowed_origins = [
+            'http://127.0.0.1:3000', 
+            'http://localhost:3000',
+            os.getenv('FRONTEND_URL', ''),  # Production frontend URL
+        ]
+        # Also allow any .onrender.com or .vercel.app origins for deployment
+        if origin and (origin in allowed_origins or 
+                      '.onrender.com' in origin or 
+                      '.vercel.app' in origin or
+                      '.railway.app' in origin):
             self.send_header('Access-Control-Allow-Origin', origin)
             self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
             self.send_header('Access-Control-Allow-Headers', 'Content-Type')
@@ -73,8 +82,16 @@ class Handler(SimpleHTTPRequestHandler):
         """Handle CORS preflight requests"""
         self.send_response(200)
         origin = self.headers.get('Origin')
-        allowed_origins = ['http://127.0.0.1:3000', 'http://localhost:3000']
-        if origin in allowed_origins:
+        allowed_origins = [
+            'http://127.0.0.1:3000', 
+            'http://localhost:3000',
+            os.getenv('FRONTEND_URL', ''),
+        ]
+        # Allow deployment platforms
+        if origin and (origin in allowed_origins or 
+                      '.onrender.com' in origin or 
+                      '.vercel.app' in origin or
+                      '.railway.app' in origin):
             self.send_header('Access-Control-Allow-Origin', origin)
             self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
             self.send_header('Access-Control-Allow-Headers', 'Content-Type')
@@ -114,11 +131,15 @@ class Handler(SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
-    p.add_argument('--port', type=int, default=8765)
+    p.add_argument('--port', type=int, default=int(os.getenv('PORT', '8765')))
     args = p.parse_args()
-    server = ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
-    print(f'Ihaze Rwanda: http://127.0.0.1:{args.port}', flush=True)
-    print('Local development only. Ctrl+C to stop.', flush=True)
+    
+    # Use 0.0.0.0 for production (Render, Railway, etc.) or 127.0.0.1 for local
+    host = '0.0.0.0' if os.getenv('RENDER') or os.getenv('RAILWAY_ENVIRONMENT') else '127.0.0.1'
+    
+    server = ThreadingHTTPServer((host, args.port), Handler)
+    print(f'Ihaze Rwanda: http://{host}:{args.port}', flush=True)
+    print('Server ready to accept requests.', flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
