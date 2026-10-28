@@ -611,9 +611,9 @@ All AI-generated code was reviewed, tested, and validated by human developers.
 **Location:** Kigali, Rwanda 🇷🇼
 
 ### Submission Components
-- ✅ **Public Repository:** [GitHub URL - to be added]
-- ✅ **Live Deployment:** [App URL - to be added]
-- ✅ **Demo Video:** [Video URL - to be added]
+- ✅ **Public Repository:** https://github.com/UAlice1/Ihaze-Rwanda
+- ✅ **Live Deployment:** [App URL - to be added after deployment]
+- ✅ **Demo Video:** [Video URL - to be added after recording]
 - ✅ **Documentation:** Complete (you're reading it!)
 - ✅ **Data Citation:** NISR Agricultural Household Survey 2016-2017
 
@@ -648,7 +648,7 @@ Contact project maintainers for commercial use inquiries.
 
 **Questions about the project?**  
 📧 Email: [Your Email]  
-💬 GitHub Issues: https://github.com/YOUR-USERNAME/ihaze-rwanda/issues
+💬 GitHub Issues: https://github.com/UAlice1/Ihaze-Rwanda/issues
 
 **Want to collaborate?**  
 We welcome partnerships with:
@@ -681,5 +681,13 @@ We welcome partnerships with:
 **Ihaze Rwanda** - Connecting Evidence to Action
 
 [⬆ Back to Top](#-ihaze-rwanda)
+
+---
+
+## 📊 GitHub Repository
+
+**Repository:** https://github.com/UAlice1/Ihaze-Rwanda  
+**Issues:** https://github.com/UAlice1/Ihaze-Rwanda/issues  
+**Discussions:** https://github.com/UAlice1/Ihaze-Rwanda/discussions
 
 </div>
