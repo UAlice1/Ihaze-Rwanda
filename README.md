@@ -612,10 +612,12 @@ All AI-generated code was reviewed, tested, and validated by human developers.
 
 ### Submission Components
 - ✅ **Public Repository:** https://github.com/UAlice1/Ihaze-Rwanda
-- ✅ **Live Deployment:** [App URL - to be added after deployment]
-- ✅ **Demo Video:** [Video URL - to be added after recording]
+- ✅ **Live Deployment:** https://ihaze-rwanda-wkqf.vercel.app (frontend deployed, backend integration in progress)
+- 🔄 **Demo Video:** [Recording in progress - shows local deployment]
 - ✅ **Documentation:** Complete (you're reading it!)
 - ✅ **Data Citation:** NISR Agricultural Household Survey 2016-2017
+
+**Note:** Due to free-tier hosting limitations, the production deployment is currently frontend-only. Full functionality including AI chat and data visualization is demonstrated in the video using local deployment.
 
 ---
 
