@@ -9,7 +9,7 @@ RUN apt-get update && \
 # Build frontend
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
-RUN npm ci --force
+RUN npm install
 COPY frontend/ ./
 RUN npm run build
 
@@ -36,7 +36,7 @@ COPY frontend/next.config.mjs ./frontend/
 
 # Install frontend dependencies for runtime
 WORKDIR /app/frontend
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 
 WORKDIR /app
 
