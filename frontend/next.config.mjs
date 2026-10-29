@@ -13,6 +13,10 @@ const nextConfig = {
   },
   // Empty turbopack config to enable Turbopack without custom webpack
   turbopack: {},
+  // Ensure Tailwind CSS works in server components
+  experimental: {
+    serverComponentsExternalPackages: ['tailwindcss'],
+  },
 };
 
 export default nextConfig;
