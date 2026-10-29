@@ -107,11 +107,27 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         try:
-            # Same-origin local application; do not let other websites invoke paid AI.
+            # Allow requests from Next.js API routes (same origin) and direct frontend requests
             origin = self.headers.get('Origin')
-            allowed_origins = {'http://'+self.headers.get('Host', ''), 'http://127.0.0.1:3000', 'http://localhost:3000', os.getenv('AGRI_FRONTEND_ORIGIN', '')}
+            host = self.headers.get('Host', '')
+            
+            # For API routes, origin will be None (same-origin), which is fine
+            # For direct requests, check if origin is allowed
+            allowed_origins = {
+                'http://'+host,
+                'https://'+host,
+                'http://127.0.0.1:3000',
+                'http://localhost:3000',
+                'http://localhost:8080',
+                'https://ihaze-rwanda.fly.dev',
+                os.getenv('AGRI_FRONTEND_ORIGIN', '')
+            }
+            
+            # If there's an origin and it's not in allowed list, check domain patterns
             if origin and origin not in allowed_origins:
-                raise service.APIError('Cross-origin requests are not allowed', 403)
+                # Allow if no origin (same-origin from API route) or if from allowed domains
+                if not any(domain in origin for domain in ['.fly.dev', '.vercel.app', '.railway.app', '.onrender.com']):
+                    raise service.APIError('Cross-origin requests are not allowed', 403)
             try:
                 length = int(self.headers.get('Content-Length', '0'))
             except ValueError:
