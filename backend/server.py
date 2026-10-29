@@ -35,13 +35,16 @@ class Handler(SimpleHTTPRequestHandler):
         allowed_origins = [
             'http://127.0.0.1:3000', 
             'http://localhost:3000',
+            'http://localhost:8080',
+            'https://ihaze-rwanda.fly.dev',
             os.getenv('FRONTEND_URL', ''),  # Production frontend URL
         ]
-        # Also allow any .onrender.com or .vercel.app origins for deployment
+        # Also allow any deployment platform origins
         if origin and (origin in allowed_origins or 
                       '.onrender.com' in origin or 
                       '.vercel.app' in origin or
-                      '.railway.app' in origin):
+                      '.railway.app' in origin or
+                      '.fly.dev' in origin):
             self.send_header('Access-Control-Allow-Origin', origin)
             self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
             self.send_header('Access-Control-Allow-Headers', 'Content-Type')
@@ -85,13 +88,16 @@ class Handler(SimpleHTTPRequestHandler):
         allowed_origins = [
             'http://127.0.0.1:3000', 
             'http://localhost:3000',
+            'http://localhost:8080',
+            'https://ihaze-rwanda.fly.dev',
             os.getenv('FRONTEND_URL', ''),
         ]
         # Allow deployment platforms
         if origin and (origin in allowed_origins or 
                       '.onrender.com' in origin or 
                       '.vercel.app' in origin or
-                      '.railway.app' in origin):
+                      '.railway.app' in origin or
+                      '.fly.dev' in origin):
             self.send_header('Access-Control-Allow-Origin', origin)
             self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
             self.send_header('Access-Control-Allow-Headers', 'Content-Type')
