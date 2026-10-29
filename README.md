@@ -6,16 +6,16 @@
 
 [![NISR Big Data Hackathon 2026](https://img.shields.io/badge/NISR-Big%20Data%20Hackathon%202026-green)](https://statistics.gov.rw)
 [![Track](https://img.shields.io/badge/Track-Agriculture-brightgreen)](.)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-success)](.)
+[![Status](https://img.shields.io/badge/Status-Live-success)](https://ihaze-rwanda.fly.dev)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js)
 ![React](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)
-![Python](https://img.shields.io/badge/Python-3.8+-green?style=flat&logo=python)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.3-06B6D4?style=flat&logo=tailwindcss)
+![Python](https://img.shields.io/badge/Python-3.11+-green?style=flat&logo=python)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat&logo=tailwindcss)
 ![Groq](https://img.shields.io/badge/Groq-AI-orange?style=flat)
 
 > **Connecting Evidence to Action: Helping 1,834 farming families protect their land**
 
-[🚀 Live App](#) | [📊 Full Research Report](research_report.md) | [🎥 Demo Video](#)
+[🚀 Live App](https://ihaze-rwanda.fly.dev) | [📊 Full Research Report](research_report.md) | [💻 GitHub](https://github.com/UAlice1/Ihaze-Rwanda)
 
 ---
 
